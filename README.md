@@ -13,7 +13,7 @@ The roles will be.
    1. Borrow/return items.
    2. 
       
-I will be designing and implementing a RESTful API for an Inventory(TIX) Management System. 
+I will be designing and implementing a RESTful API for an Inventory Management System. 
 
 Build a Flask-based REST API
 
@@ -27,3 +27,23 @@ User authentication (login/register) & Role-Based Access controls
 5. Use proper HTTP methods and status codes
 6. Structure your project clearly (models, routes, etc.)
 7. Return data in JSON format
+
+
+
+
+
+
+Endpoint                       Methods  Rule                   
+-----------------------------  -------  -----------------------
+auth.get_users                 GET      /auth/users                     CM
+auth.login                     POST     /auth/login                     USER/PUBLIC
+auth.register                  POST     /auth/register                  USER/PUBLIC
+home                           GET      /                               USER/PUBLIC
+items.create_item              POST     /items/                         CM
+items.delete_item              DELETE   /items/<int:id>                 CM
+items.get_items                GET      /items/                         PUBLIC/GUEST
+items.update_item              PATCH    /items/<int:id>                 CM        
+transactions.all_transactions  GET      /transactions/                  CM
+transactions.borrow_item       POST     /transactions/borrow            USER
+transactions.my_transactions   GET      /transactions/my                USER
+transactions.return_item       POST     /transactions/return            USER
